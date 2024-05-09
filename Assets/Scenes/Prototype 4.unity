@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &529944964
 Transform:
   m_ObjectHideFlags: 0
@@ -316,7 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4db0638de6b24403a3fb81b71fba021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2605636027001584771, guid: c0737aac417a94dbca6f487f26e27079, type: 3}
+  enemyPrefabs:
+  - {fileID: 2605636027001584771, guid: c0737aac417a94dbca6f487f26e27079, type: 3}
+  - {fileID: 8659469298342236162, guid: 6733f2ed836bd45ee9083655cd05f147, type: 3}
   enemyCount: 0
   waveNumber: 1
   powerupPrefab: {fileID: 7189926439234421583, guid: bc7db8cb2ab5242b2b4900c25a1038f2, type: 3}
@@ -364,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db1e93c107914ef9bc9c70ef400dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 23
+  rotationSpeed: 40
 --- !u!1 &1211016355
 GameObject:
   m_ObjectHideFlags: 0
