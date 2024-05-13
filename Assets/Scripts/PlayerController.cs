@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 5.0f;// defienes speed varabile
     private GameObject focalPoint; // connects the focalpoint to the playercontroller script
     public GameObject powerupIndicator;
+    public GameObject Rocket;
+     public bool hasPowerup2;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,11 @@ public class PlayerController : MonoBehaviour
         float forwardInput = Input.GetAxis("Vertical");  // assigns the forwardInput to a GetAxis Key.
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput); // adds force to the player RigidBody with the forwardInput varabile. 
         powerupIndicator.transform.position =transform.position + new Vector3( 0,-0.5f , 0);
+
+        if (hasPowerup2 == true && Input.GetKeyDown(KeyCode.X))
+        {
+            Instantiate(Rocket,transform.position,Rocket.transform.rotation);
+        }
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -35,6 +42,16 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(PowerupCountdownRoutine());
         powerupIndicator.gameObject.SetActive(true);
         }
+
+        if (other.CompareTag("Powerup2"))
+        {
+            hasPowerup2 = true;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
+            powerupIndicator.gameObject.SetActive(true);
+
+        }
+    
 
     }
     private void OnCollisionEnter (Collision collision)

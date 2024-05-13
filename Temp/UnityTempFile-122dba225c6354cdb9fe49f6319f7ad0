@@ -317,5 +317,6 @@
 /define:USE_SEARCH_ENGINE_API
 "Assets/Scripts/EnemyScript.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/RocketFollow.cs"
 "Assets/Scripts/RotateCamera.cs"
 "Assets/Scripts/SpawnManager.cs"

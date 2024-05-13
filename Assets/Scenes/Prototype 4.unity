@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &529944964
 Transform:
   m_ObjectHideFlags: 0
@@ -321,7 +321,10 @@ MonoBehaviour:
   - {fileID: 8659469298342236162, guid: 6733f2ed836bd45ee9083655cd05f147, type: 3}
   enemyCount: 0
   waveNumber: 1
-  powerupPrefab: {fileID: 7189926439234421583, guid: bc7db8cb2ab5242b2b4900c25a1038f2, type: 3}
+  powerupPrefab:
+  - {fileID: 7189926439234421583, guid: bc7db8cb2ab5242b2b4900c25a1038f2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1094160134
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,19 +568,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 7.033
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 7.033
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 7.033
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -585,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -593,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -646,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 1988532679480135256, guid: 2c5d0c3b83f0d406a9fe68b0afed125f, type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988532679480135257, guid: 2c5d0c3b83f0d406a9fe68b0afed125f, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1988532679480135257, guid: 2c5d0c3b83f0d406a9fe68b0afed125f, type: 3}
       propertyPath: powerupIndicator
