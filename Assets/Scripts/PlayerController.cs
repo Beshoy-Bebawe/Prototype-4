@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public GameObject Rocket;
      public bool hasPowerup2;
+
+     private EnemyScript[] enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,14 @@ public class PlayerController : MonoBehaviour
 
         if (hasPowerup2 == true && Input.GetKeyDown(KeyCode.X))
         {
-            Instantiate(Rocket,transform.position,Rocket.transform.rotation);
+            enemy = FindObjectsOfType<EnemyScript>();
+
+            for( int i = 0 ; i <= enemy.Length ; i++)
+            {
+                var temprocket =  Instantiate(Rocket,transform.position,Rocket.transform.rotation);
+                temprocket.GetComponent<Rigidbody>().AddForce(enemy[i].transform.position* 10);
+            }
+           
         }
     }
 
@@ -72,6 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(7);
         hasPowerup = false;
+        hasPowerup2 = false;
         powerupIndicator.gameObject.SetActive(false);
 
     }
