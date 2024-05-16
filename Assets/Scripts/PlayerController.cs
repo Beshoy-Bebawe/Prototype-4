@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     private GameObject focalPoint; // connects the focalpoint to the playercontroller script
     public GameObject powerupIndicator;
     public GameObject Rocket;
+    
      public bool hasPowerup2;
+     public bool hasPowerup3;
+     private bool isOnGround;
 
      private EnemyScript[] enemy;
     // Start is called before the first frame update
@@ -33,10 +36,10 @@ public class PlayerController : MonoBehaviour
         {
             enemy = FindObjectsOfType<EnemyScript>();
 
-            for( int i = 0 ; i <= enemy.Length ; i++)
+            for( int i = 0 ; i < enemy.Length ; i++)
             {
                 var temprocket =  Instantiate(Rocket,transform.position,Rocket.transform.rotation);
-                temprocket.GetComponent<Rigidbody>().AddForce(enemy[i].transform.position* 10);
+                temprocket.GetComponent<RocketFollow>().FindEnemy(enemy[i].transform);
             }
            
         }
@@ -60,7 +63,15 @@ public class PlayerController : MonoBehaviour
             powerupIndicator.gameObject.SetActive(true);
 
         }
-    
+         if (other.CompareTag("Powerup3"))
+        {
+            hasPowerup3 = true;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
+            powerupIndicator.gameObject.SetActive(true);
+
+        }
+         
 
     }
     private void OnCollisionEnter (Collision collision)
@@ -82,6 +93,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         hasPowerup2 = false;
+        hasPowerup3 = false; 
         powerupIndicator.gameObject.SetActive(false);
 
     }

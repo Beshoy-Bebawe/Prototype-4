@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class RocketFollow : MonoBehaviour
 {
-    private Rigidbody rocketrb;
-    private EnemyScript[] enemy;
+
     private float powerupStrength = 20;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        rocketrb = GetComponent<Rigidbody>();
-        enemy = FindObjectsOfType<EnemyScript>();
-       
-    }
+    Transform enemy;
+
+
+
     // Update is called once per frame
     void Update()
     {
-      for( int i = 0 ; i <= enemy.Length ; i++)
-        { 
-            rocketrb.AddForce(enemy[i].transform.position * 10);
+        if(enemy != null)
+        {
+            transform.LookAt(enemy);
+            transform.position = Vector3.MoveTowards(transform.position,enemy.position, powerupStrength * Time.deltaTime);
         }
+
         
+
+    }
+
+    public void FindEnemy(Transform enemyPos)
+    {
+        enemy = enemyPos;
+        Destroy(gameObject ,5);
 
     }
     private void OnCollisionEnter(Collision collision)
