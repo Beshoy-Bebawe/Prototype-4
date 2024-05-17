@@ -41,8 +41,16 @@ public class PlayerController : MonoBehaviour
                 var temprocket =  Instantiate(Rocket,transform.position,Rocket.transform.rotation);
                 temprocket.GetComponent<RocketFollow>().FindEnemy(enemy[i].transform);
             }
+
            
         }
+         if (hasPowerup3 == true && Input.GetKeyDown(KeyCode.Space))
+         {
+            isOnGround = false;
+
+            playerRb.velocity = new Vector3(0,10,0);
+
+         }
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -63,7 +71,7 @@ public class PlayerController : MonoBehaviour
             powerupIndicator.gameObject.SetActive(true);
 
         }
-         if (other.CompareTag("Powerup3"))
+         if (other.CompareTag("Explosion"))
         {
             hasPowerup3 = true;
             Destroy(other.gameObject);
@@ -83,6 +91,15 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("Collided with" + collision.gameObject.name + "with powerup set to" + hasPowerup);
            enemyRigidbody.AddForce(awayFromPlayer * powerupStrength ,ForceMode.Impulse); 
+        }
+        if (collision.gameObject.CompareTag("Ground") &&  hasPowerup3)
+        {
+            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            for (int i = 0 ; i < enemies.Length; i++)
+            {
+             enemies[i].GetComponent<Rigidbody>().AddExplosionForce(50,transform.position,50,0,ForceMode.Impulse);
+            }
         }
     }
 

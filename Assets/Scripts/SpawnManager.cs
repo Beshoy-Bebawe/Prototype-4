@@ -28,7 +28,9 @@ public class SpawnManager : MonoBehaviour
             SpawnEnemyWave(waveNumber);
             int powerupIndex = Random.Range(0 ,powerupPrefab.Length);
             Instantiate(powerupPrefab[powerupIndex],GenerateSpawnPosition(),powerupPrefab[powerupIndex].transform.rotation);
+            
         }
+        
     }
     private Vector3 GenerateSpawnPosition()
     {
