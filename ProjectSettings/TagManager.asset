@@ -9,6 +9,7 @@ TagManager:
   - Powerup2
   - 'Powerup3 '
   - Ground
+  - Explosion
   layers:
   - Default
   - TransparentFX
